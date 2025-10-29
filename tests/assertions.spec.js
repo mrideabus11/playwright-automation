@@ -34,6 +34,5 @@ test("Assertions Demo", async ({ page }) => {
   //   await expect(page).toHaveURL("https://kitchen.applitools.com/")
   await expect(page).toHaveURL(/kitchen.applitools.com/)
 
-  await expect(page).toHaveTitle(/.*Kitchen/)
-  
+  await expect(page).toHaveTitle(/.*Kitchen/) // this is regex
 })
