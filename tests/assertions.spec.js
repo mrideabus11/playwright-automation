@@ -12,9 +12,20 @@ test("Assertions Demo", async ({ page }) => {
 
   // check if the element is visible or not
   await expect(page.locator("text=The Kitchen")).toBeVisible()
-  await expect.soft(page.locator("text=The Kitchen")).toBeHidden()
+  await expect.soft(page.locator("text=The Kitchen")).toBeHidden() //.soft means soft assertion i.e. the test won't stop if this fails
 
   // check if an element is enabled or disabled
   await expect(page.locator("text=The Kitchen")).toBeEnabled()
   await expect.soft(page.locator("text=The Kitchen")).toBeDisabled()
+
+  // check text
+  await expect(page.locator("text=The Kitchen")).toHaveText("The Kitchen")
+  await expect(page.locator("text=The Kitchen")).not.toHaveText("The Kitchen")
+
+  // check attribute value
+  await expect(page.locator("text=The Kitchen")).toHaveAttribute(
+    "class",
+    /.*css-dpmy2a/
+  )
+  await expect(page.locator("text=The Kitchen")).toHaveClass(/.*css-dpmy2a/) //     /.*css=dmpy2a/ is a regex
 })
