@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test"
 
 test("Login demo test 1", async ({ page }) => {
   await page.goto("https://demo.applitools.com/")
-  await page.pause()
+  // await page.pause()
 
   await page.locator("id=username").fill("username")
   await page.locator("id=password").fill("password")
@@ -20,8 +20,8 @@ test.only("Orange HRM demo login test", async ({ page }) => {
   await page.goto(
     "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
   )
-  await page.pause()
-  await page.locator(getByRole("textbox", { name: "Username" })).fill("Admin")
+  // await page.pause()
+  await page.locator(getByRole("textbox", { name: "username" })).fill("Admin")
   await page
     .locator(
       locator("div")
