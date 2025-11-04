@@ -22,13 +22,26 @@ test("slow test", async () => {
   //.....
 })
 
+/*
 //runs this test only
 test.only("only test", async ({}) => {
   test.slow()
   //.....
 })
+*/
 
 //skip conditionally
 test("skip this test for firefox", async ({ page, browserName }) => {
   test.skip(browserName === "firefox", "Still working on it!")
+})
+
+// Tags @fast @slow @smoke @sanity
+// to execute the tests, sue the --grep command
+test("Test login page @fast", async ({ page }) => {
+  //....
+})
+
+//to skip the tests having certain tags user --grep-invert command
+test("Test log out @smoke", async () => {
+  //....
 })
